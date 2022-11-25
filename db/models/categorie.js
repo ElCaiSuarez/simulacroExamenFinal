@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Categorie.hasMany(models.Channel)
     }
   }
   Categorie.init({
@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Categorie',
+    tableName: 'Categories',
   });
   return Categorie;
 };

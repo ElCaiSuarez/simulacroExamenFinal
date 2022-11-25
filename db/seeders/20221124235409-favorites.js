@@ -3,19 +3,19 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     return queryInterface.bulkInsert('Favorites', [{
-      deviceId: 0,
-      channelId: 0,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      deviceId: 0,
+      deviceId: 1,
       channelId: 1,
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
       deviceId: 1,
+      channelId: 2,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      deviceId: 2,
       channelId: 3,
       createdAt: new Date(),
       updatedAt: new Date()

@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      //Channel.hasOne(models.Category)
+      Channel.belongsTo(models.Categorie)
     }
   }
   Channel.init({
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    categoryId: {
+    categorieId: {
       type: DataTypes.NUMBER,
       allowNull: false
     },

@@ -7,7 +7,12 @@ router.get('/', async function (req, res, next) {
     if (req.query.locationName){
         return res.json( await locations.getAll({locationName: req.query.locationName}))
     } */
-    res.json(await channels.getAll());
+    try{
+        res.json(await channels.getAll());
+    }catch (e){
+        res.status(500).json({ "message": e })
+    }
+    
 });
 
 
