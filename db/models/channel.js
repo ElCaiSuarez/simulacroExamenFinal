@@ -3,25 +3,33 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Device extends Model {
+  class Channel extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      //Channel.hasOne(models.Category)
     }
   }
-  Device.init({
-    identifier: { 
-      type: DataTypes.STRING(12),
+  Channel.init({
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    logoUrl: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    categoryId: {
+      type: DataTypes.NUMBER,
       allowNull: false
     },
   }, {
     sequelize,
-    modelName: 'Device',
-    tableName: 'Devices',
+    modelName: 'Channel',
+    tableName: 'Channels',
   });
-  return Device;
+  return Channel;
 };

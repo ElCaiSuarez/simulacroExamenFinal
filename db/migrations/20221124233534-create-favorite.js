@@ -2,15 +2,19 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Devices', {
+    await queryInterface.createTable('Favorites', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      identifier: {
-        type: Sequelize.STRING(12),
+      deviceId: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      channelId: {
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       createdAt: {
@@ -24,6 +28,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Devices');
+    await queryInterface.dropTable('Favorites');
   }
 };
