@@ -3,10 +3,7 @@ var router = express.Router();
 var devices = require('../src/repositories/devices');
 
 router.get('/', async function (req, res, next) {
-    /* console.log(req.query.locationName);
-    if (req.query.locationName){
-        return res.json( await locations.getAll({locationName: req.query.locationName}))
-    } */
+
     res.json(await devices.getAll());
 });
 

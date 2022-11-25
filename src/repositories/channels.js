@@ -11,11 +11,6 @@ const includeCategorie = {
     attributes: ['name']
 }
 
-/* const includeCategorie = {
-    model: Categorie,
-    attributes: ['name'],
-}
- */
 async function getAll() {
     let query = {
         where: {},

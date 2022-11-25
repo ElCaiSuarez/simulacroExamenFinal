@@ -27,11 +27,11 @@ async function exist(identifier) {
 
 }
 
-async function habilitar(identifier) {//Egreso Vehiculo
+async function habilitar(identifier) {
     let enabledAt = new Date();
     let disabledAt = null
 
-    await Device.update({//PATCH bookings: http://localhost:3000/bookings/ + body
+    await Device.update({
         enabledAt: enabledAt,
         disabledAt: disabledAt
     }, {
@@ -40,11 +40,11 @@ async function habilitar(identifier) {//Egreso Vehiculo
     return enabledAt
 }
 
-async function deshabilitar(identifier) {//Egreso Vehiculo
+async function deshabilitar(identifier) {
     let enabledAt = null
     let disabledAt = new Date();
 
-    await Device.update({//PATCH bookings: http://localhost:3000/bookings/ + body
+    await Device.update({
         enabledAt: enabledAt,
         disabledAt: disabledAt
     }, {
