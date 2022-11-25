@@ -18,6 +18,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(12),
       allowNull: false
     },
+    enabledAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    disabledAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
   }, {
     sequelize,
     modelName: 'Device',

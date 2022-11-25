@@ -18,4 +18,29 @@ router.post('/', async function (req, res, next) {
         res.status(404)
     }
 })
+
+router.patch('/', async function (req, res, next) {
+    if (!req.body.identifier) {
+        return res.status(400).json({ "message": "MISSING_IDENTIFIER" })
+    }
+    const deviceAux = await devices.exist(req.body.identifier)
+    console.log(deviceAux.enabledAt);
+    if (!deviceAux) {
+        return res.status(400).json({ "message": "UNREGISTERED_IDENTIFIER" })
+    }
+    try {
+        let saved
+        if(deviceAux.enabledAt == null){
+            saved = await devices.habilitar(req.body.identifier)
+            res.status(201).json({ "enabledAt": saved });
+        }else{
+            saved = await devices.deshabilitar(req.body.identifier)
+            res.status(201).json({ "disabledAt": saved });
+        }        
+        
+    } catch (e) {
+        res.status(500).json({ "message": e })
+    }
+})
+
 module.exports = router;
