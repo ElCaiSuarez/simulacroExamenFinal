@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Device.hasMany(models.Favorite)
+      Device.hasMany(models.Unlocked)
+      Device.hasMany(models.Locked)
     }
   }
   Device.init({

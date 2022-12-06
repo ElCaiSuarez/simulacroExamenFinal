@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Channel.belongsTo(models.Categorie)
+      Channel.hasMany(models.Favorite)
+      Channel.hasMany(models.Unlocked)
+      Channel.hasMany(models.Locked)
     }
   }
   Channel.init({

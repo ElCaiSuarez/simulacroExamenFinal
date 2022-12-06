@@ -12,5 +12,12 @@ router.get('/', async function (req, res, next) {
     
 });
 
+router.get('/:id', async function (req, res, next) {
+    try{
+        res.json(await channels.getById(req.params.id));
+    }catch (e){
+        res.status(500).json({ "message": e })
+    }
+});
 
 module.exports = router;

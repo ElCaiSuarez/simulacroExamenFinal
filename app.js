@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 var devicesRouter = require('./routes/devices');
 var categoriesRouter = require('./routes/categories');
 var channelsRouter = require('./routes/channels');
-var favoritesRouter = require('./routes/favorites');
+var deviceInstanceRouter = require('./routes/device');
 
 var app = express();
 
@@ -28,7 +28,8 @@ app.use('/users', usersRouter);
 app.use('/devices', devicesRouter);
 app.use('/categories', categoriesRouter);
 app.use('/channels', channelsRouter);
-app.use('/favorites', favoritesRouter);
+app.use('/device', deviceInstanceRouter);
+//app.use('/category', channelsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

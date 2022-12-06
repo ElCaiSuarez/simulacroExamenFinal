@@ -1,4 +1,4 @@
-const { Categorie, Channel } = require('../../db/models')
+const { Locked } = require('../../db/models')
 
 const queryAttributes = {
     attributes: {
@@ -6,10 +6,10 @@ const queryAttributes = {
     }
 }
 
-const includeChannel = {
+/* const includeChannel = {
     model: Channel,
     attributes: ['id','name','logoUrl']
-}
+} */
 
 async function getAll() {
     let query = {
@@ -19,15 +19,7 @@ async function getAll() {
     return await Categorie.findAll(query)
 }
 
-async function getById(id) {
-    let query = {
-        where: {id:id},
-        attributes: queryAttributes.attributes
-    }
-    return await Categorie.findOne(query)
-}
-
-async function getChannelsByCategory(id) {
+async function lockChannelByDevice(deviceId, channelId, lockedCode) {
     let query = {
         where: {id:id},
         attributes: queryAttributes.attributes,
@@ -38,6 +30,6 @@ async function getChannelsByCategory(id) {
 
 module.exports = {
     getAll,
-    getById,
-    getChannelsByCategory
+    lockChannelByDevice
+
 }
